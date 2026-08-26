@@ -1,0 +1,276 @@
+(function () {
+  "use strict";
+
+  // ---------- Config ----------
+  var WORD_INTERVAL_MS = 210;     // pace of the word-by-word read
+  var ANSWER_SECONDS = 5;         // buzz-in and post-read answer window
+  var TIMER_CIRCUMFERENCE = 194.78; // 2 * PI * r(31), matches style.css
+
+  // ---------- Elements ----------
+  var screenStart = document.getElementById("screen-start");
+  var screenGame = document.getElementById("screen-game");
+  var btnPlay = document.getElementById("btn-play");
+  var questionTotalEl = document.getElementById("question-total");
+
+  var categoryLabel = document.getElementById("category-label");
+  var questionCount = document.getElementById("question-count");
+  var questionTextEl = document.getElementById("question-text");
+  var cursorEl = document.getElementById("cursor");
+
+  var feedbackEl = document.getElementById("feedback");
+  var feedbackTextEl = document.getElementById("feedback-text");
+  var revealBlock = document.getElementById("reveal-block");
+  var answerTextEl = document.getElementById("answer-text");
+
+  var buzzZone = document.getElementById("buzz-zone");
+  var btnBuzz = document.getElementById("btn-buzz");
+
+  var answerZone = document.getElementById("answer-zone");
+  var answerForm = document.getElementById("answer-form");
+  var answerInput = document.getElementById("answer-input");
+  var timerProgress = document.getElementById("timer-progress");
+  var timerNum = document.getElementById("timer-num");
+
+  var btnNext = document.getElementById("btn-next");
+
+  // ---------- State ----------
+  var bag = [];            // shuffled queue of question indices
+  var bagPointer = 0;
+  var askedCount = 0;
+  var current = null;      // current question object
+  var words = [];
+  var wordIndex = 0;
+  var wordTimerId = null;
+  var answerTimeoutId = null;
+  var answerIntervalId = null;
+  var hasBuzzed = false;
+  var revealFinished = false;
+
+  // ---------- Bag shuffling (no repeats until exhausted) ----------
+  function shuffledIndices(n) {
+    var arr = [];
+    for (var i = 0; i < n; i++) arr.push(i);
+    for (var j = arr.length - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1));
+      var tmp = arr[j]; arr[j] = arr[k]; arr[k] = tmp;
+    }
+    return arr;
+  }
+
+  function refillBag() {
+    var lastIndex = bag.length ? bag[bag.length - 1] : -1;
+    bag = shuffledIndices(QUESTIONS.length);
+    // avoid an immediate repeat across a reshuffle boundary
+    if (bag.length > 1 && bag[0] === lastIndex) {
+      var swapWith = 1 + Math.floor(Math.random() * (bag.length - 1));
+      var tmp = bag[0]; bag[0] = bag[swapWith]; bag[swapWith] = tmp;
+    }
+    bagPointer = 0;
+  }
+
+  function nextQuestion() {
+    if (bagPointer >= bag.length) refillBag();
+    var idx = bag[bagPointer++];
+    return QUESTIONS[idx];
+  }
+
+  // ---------- Screen transitions ----------
+  function showScreen(el) {
+    [screenStart, screenGame].forEach(function (s) {
+      s.classList.toggle("is-active", s === el);
+    });
+  }
+
+  // ---------- Word-by-word reveal ----------
+  function startReveal(question) {
+    words = question.text.split(/\s+/);
+    wordIndex = 0;
+    revealFinished = false;
+    hasBuzzed = false;
+    questionTextEl.textContent = "";
+    questionTextEl.appendChild(cursorEl);
+
+    clearInterval(wordTimerId);
+    wordTimerId = setInterval(function () {
+      if (wordIndex >= words.length) {
+        clearInterval(wordTimerId);
+        finishReveal();
+        return;
+      }
+      var wordNode = document.createTextNode(
+        (wordIndex === 0 ? "" : " ") + words[wordIndex]
+      );
+      questionTextEl.insertBefore(wordNode, cursorEl);
+      wordIndex++;
+    }, WORD_INTERVAL_MS);
+  }
+
+  function finishReveal() {
+    revealFinished = true;
+    if (cursorEl.parentNode) cursorEl.parentNode.removeChild(cursorEl);
+    // If the player never buzzed, the clock now starts automatically.
+    if (!hasBuzzed) {
+      startAnswerWindow({ auto: true });
+    }
+  }
+
+  function showRestOfQuestionInstantly() {
+    clearInterval(wordTimerId);
+    if (wordIndex < words.length) {
+      var rest = words.slice(wordIndex).join(" ");
+      var node = document.createTextNode((wordIndex === 0 ? "" : " ") + rest);
+      if (cursorEl.parentNode) {
+        questionTextEl.insertBefore(node, cursorEl);
+      } else {
+        questionTextEl.appendChild(node);
+      }
+      wordIndex = words.length;
+    }
+    if (cursorEl.parentNode) cursorEl.parentNode.removeChild(cursorEl);
+  }
+
+  // ---------- Buzzing ----------
+  btnBuzz.addEventListener("click", function () {
+    if (hasBuzzed || revealFinished) return;
+    hasBuzzed = true;
+    btnBuzz.classList.add("is-pressed");
+    clearInterval(wordTimerId);
+    if (cursorEl.parentNode) cursorEl.parentNode.removeChild(cursorEl);
+    startAnswerWindow({ auto: false });
+  });
+
+  // ---------- Answer window ----------
+  function startAnswerWindow() {
+    buzzZone.hidden = true;
+    answerZone.hidden = false;
+    answerInput.value = "";
+    answerInput.disabled = false;
+    setTimeout(function () { answerInput.focus(); }, 30);
+
+    var secondsLeft = ANSWER_SECONDS;
+    timerNum.textContent = String(secondsLeft);
+
+    // Reset ring instantly, then animate it down over the full window.
+    timerProgress.style.transition = "none";
+    timerProgress.style.strokeDashoffset = "0";
+    // force reflow so the transition below actually animates
+    void timerProgress.getBoundingClientRect();
+    timerProgress.style.transition = "stroke-dashoffset " + ANSWER_SECONDS + "s linear";
+    timerProgress.style.strokeDashoffset = String(TIMER_CIRCUMFERENCE);
+
+    clearInterval(answerIntervalId);
+    answerIntervalId = setInterval(function () {
+      secondsLeft -= 1;
+      timerNum.textContent = String(Math.max(secondsLeft, 0));
+    }, 1000);
+
+    clearTimeout(answerTimeoutId);
+    answerTimeoutId = setTimeout(handleTimeout, ANSWER_SECONDS * 1000);
+  }
+
+  function stopAnswerWindow() {
+    clearTimeout(answerTimeoutId);
+    clearInterval(answerIntervalId);
+    answerInput.disabled = true;
+  }
+
+  answerForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (answerInput.disabled) return;
+    var userAnswer = answerInput.value;
+    stopAnswerWindow();
+    var correct = checkAnswer(userAnswer, current.answer);
+    showFeedback(correct ? "correct" : "incorrect");
+    wrapUpQuestion();
+  });
+
+  function handleTimeout() {
+    stopAnswerWindow();
+    showFeedback("timeout");
+    wrapUpQuestion();
+  }
+
+  function wrapUpQuestion() {
+    showRestOfQuestionInstantly();
+    answerZone.hidden = true;
+    revealBlock.hidden = false;
+    answerTextEl.textContent = current.answer;
+    btnNext.hidden = false;
+  }
+
+  // ---------- Answer checking ----------
+  function normalize(str) {
+    return str
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // strip accents
+      .replace(/["“”'’.,!?;:()]/g, "")
+      .replace(/\b(the|a|an)\b/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function checkAnswer(userRaw, correctRaw) {
+    var user = normalize(userRaw);
+    var correct = normalize(correctRaw);
+    if (!user) return false;
+    if (user === correct) return true;
+    // accept a close substring match either direction (handles
+    // "kite runner" vs "the kite runner", last-name-only answers, etc.)
+    if (correct.length >= 4 && (user.indexOf(correct) !== -1 || correct.indexOf(user) !== -1)) {
+      return true;
+    }
+    return false;
+  }
+
+  function showFeedback(kind) {
+    feedbackEl.hidden = false;
+    feedbackEl.classList.remove("is-correct", "is-incorrect", "is-timeout");
+    if (kind === "correct") {
+      feedbackEl.classList.add("is-correct");
+      feedbackTextEl.textContent = "Good job — that's correct!";
+    } else if (kind === "incorrect") {
+      feedbackEl.classList.add("is-incorrect");
+      feedbackTextEl.textContent = "Not quite. Here's the correct answer:";
+    } else {
+      feedbackEl.classList.add("is-timeout");
+      feedbackTextEl.textContent = "Time's up! Here's the correct answer:";
+    }
+  }
+
+  // ---------- Question lifecycle ----------
+  function loadQuestion() {
+    current = nextQuestion();
+    askedCount++;
+
+    categoryLabel.textContent = current.category;
+    questionCount.textContent = pad(askedCount) + " / " + pad(QUESTIONS.length);
+
+    feedbackEl.hidden = true;
+    revealBlock.hidden = true;
+    answerTextEl.textContent = "";
+    btnNext.hidden = true;
+
+    answerZone.hidden = true;
+    buzzZone.hidden = false;
+    btnBuzz.classList.remove("is-pressed");
+
+    startReveal(current);
+  }
+
+  function pad(n) {
+    return n < 10 ? "0" + n : String(n);
+  }
+
+  btnNext.addEventListener("click", loadQuestion);
+
+  // ---------- Boot ----------
+  questionTotalEl.textContent = String(QUESTIONS.length);
+
+  btnPlay.addEventListener("click", function () {
+    showScreen(screenGame);
+    refillBag();
+    askedCount = 0;
+    loadQuestion();
+  });
+
+})();

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scholastic Bowl — Buzzer Practice</title>
+<meta name="description" content="Practice scholastic bowl questions with a live buzzer, word-by-word reads, and a five second answer clock." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="stage" id="stage">
+  <div class="bg-layer" aria-hidden="true"></div>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- START SCREEN -->
+  <section id="screen-start" class="screen screen--start is-active">
+    <div class="start-card">
+      <img src="logo.png" alt="Scholastic Bowl" class="logo" onerror="this.remove()" />
+      <p class="eyebrow">Practice Buzzer Room</p>
+      <h1 class="title">Welcome to<br /><span class="title-accent">Scholastic&nbsp;Bowl!</span></h1>
+      <p class="subtitle">A topic. A live read. A buzzer. Ring in the moment you know it — or wait for the last five seconds to find out if you did.</p>
+      <button id="btn-play" class="btn-play" type="button">
+        <span class="btn-play-ring"></span>
+        <span class="btn-play-text">Play</span>
+      </button>
+      <p class="start-note"><span id="question-total">0</span> questions loaded &middot; none repeat until the set is through</p>
+    </div>
+  </section>
+
+  <!-- GAME SCREEN -->
+  <section id="screen-game" class="screen screen--game">
+    <header class="game-header">
+      <div class="header-block">
+        <p class="eyebrow">Category</p>
+        <h2 id="category-label" class="category">—</h2>
+      </div>
+      <div class="header-block header-block--right">
+        <p class="eyebrow">Question</p>
+        <p id="question-count" class="mono question-count">00 / 00</p>
+      </div>
+    </header>
+
+    <div class="tossup-card">
+      <p id="question-text" class="question-text"><span id="cursor" class="cursor"></span></p>
+    </div>
+
+    <div id="feedback" class="feedback" hidden>
+      <p id="feedback-text"></p>
+    </div>
+
+    <div id="reveal-block" class="reveal-block" hidden>
+      <p class="eyebrow">Answer</p>
+      <p id="answer-text" class="answer-text"></p>
+    </div>
+
+    <div class="control-zone">
+
+      <div id="buzz-zone" class="buzz-zone">
+        <button id="btn-buzz" class="buzzer" type="button" aria-label="Buzz in">
+          <span class="buzzer-face">
+            <span class="buzzer-label">Buzz</span>
+          </span>
+        </button>
+        <p class="control-hint">Ring in any time — the read will pause for you</p>
+      </div>
+
+      <div id="answer-zone" class="answer-zone" hidden>
+        <div class="timer-ring" aria-hidden="true">
+          <svg viewBox="0 0 72 72" class="timer-svg">
+            <circle class="timer-track" cx="36" cy="36" r="31"></circle>
+            <circle id="timer-progress" class="timer-progress" cx="36" cy="36" r="31"></circle>
+          </svg>
+          <span id="timer-num" class="mono timer-num">5</span>
+        </div>
+        <form id="answer-form" class="answer-form" autocomplete="off">
+          <label for="answer-input" class="sr-only">Your answer</label>
+          <input id="answer-input" class="answer-input" type="text" placeholder="Type your answer…" autocomplete="off" autocapitalize="off" spellcheck="false" />
+          <button type="submit" class="btn-enter">Enter</button>
+        </form>
+      </div>
+
+      <button id="btn-next" class="btn-next" type="button" hidden>
+        Next Question <span class="btn-next-arrow">→</span>
+      </button>
+
+    </div>
+  </section>
+
+</div>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

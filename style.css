@@ -129,8 +129,6 @@ body {
   width: auto;
   height: auto;
   margin-bottom: 1.75rem;
-  border-radius: 14px;
-  box-shadow: 0 0 0 1px var(--hairline), 0 18px 40px rgba(0,0,0,0.45);
 }
 
 .eyebrow {
@@ -164,14 +162,6 @@ body {
   font-size: 1.02rem;
   line-height: 1.6;
   max-width: 27rem;
-}
-
-.start-note {
-  margin: 1.5rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  color: var(--muted);
-  letter-spacing: 0.02em;
 }
 
 /* Play button: a scoreboard-style start toggle */
@@ -246,14 +236,11 @@ body {
   max-width: 44rem;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
   gap: 1rem;
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--hairline);
 }
-
-.header-block--right { text-align: right; }
 
 .category {
   margin: 0;
@@ -261,13 +248,6 @@ body {
   font-weight: 600;
   font-size: clamp(1.3rem, 4vw, 1.85rem);
   color: var(--brass-bright);
-}
-
-.question-count {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--muted);
-  letter-spacing: 0.03em;
 }
 
 /* Tossup card: the "teleprompter" */
@@ -360,10 +340,29 @@ body {
 .control-zone {
   width: 100%;
   max-width: 44rem;
+  min-height: 11rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding-top: 0.5rem;
+}
+
+/* Crossfade used to swap the buzzer, the answer box, and the
+   Next Question button in and out of the control zone. */
+.fade-el {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.fade-el.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-el { transition: opacity 0.01s linear; transform: none; }
 }
 
 .buzz-zone {
@@ -422,13 +421,6 @@ body {
   box-shadow:
     inset 0 6px 10px rgba(0,0,0,0.4),
     0 4px 10px rgba(179,32,44,0.3);
-}
-
-.control-hint {
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--muted);
-  text-align: center;
 }
 
 /* Answer zone */

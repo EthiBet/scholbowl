@@ -23,14 +23,12 @@
   <section id="screen-start" class="screen screen--start is-active">
     <div class="start-card">
       <img src="logo.png" alt="Scholastic Bowl" class="logo" onerror="this.remove()" />
-      <p class="eyebrow">Practice Buzzer Room</p>
       <h1 class="title">Welcome to<br /><span class="title-accent">Scholastic&nbsp;Bowl!</span></h1>
       <p class="subtitle">A topic. A live read. A buzzer. Ring in the moment you know it — or wait for the last five seconds to find out if you did.</p>
       <button id="btn-play" class="btn-play" type="button">
         <span class="btn-play-ring"></span>
         <span class="btn-play-text">Play</span>
       </button>
-      <p class="start-note"><span id="question-total">0</span> questions loaded &middot; none repeat until the set is through</p>
     </div>
   </section>
 
@@ -40,10 +38,6 @@
       <div class="header-block">
         <p class="eyebrow">Category</p>
         <h2 id="category-label" class="category">—</h2>
-      </div>
-      <div class="header-block header-block--right">
-        <p class="eyebrow">Question</p>
-        <p id="question-count" class="mono question-count">00 / 00</p>
       </div>
     </header>
 
@@ -62,16 +56,15 @@
 
     <div class="control-zone">
 
-      <div id="buzz-zone" class="buzz-zone">
+      <div id="buzz-zone" class="buzz-zone fade-el">
         <button id="btn-buzz" class="buzzer" type="button" aria-label="Buzz in">
           <span class="buzzer-face">
             <span class="buzzer-label">Buzz</span>
           </span>
         </button>
-        <p class="control-hint">Ring in any time — the read will pause for you</p>
       </div>
 
-      <div id="answer-zone" class="answer-zone" hidden>
+      <div id="answer-zone" class="answer-zone fade-el" hidden>
         <div class="timer-ring" aria-hidden="true">
           <svg viewBox="0 0 72 72" class="timer-svg">
             <circle class="timer-track" cx="36" cy="36" r="31"></circle>
@@ -86,7 +79,7 @@
         </form>
       </div>
 
-      <button id="btn-next" class="btn-next" type="button" hidden>
+      <button id="btn-next" class="btn-next fade-el" type="button" hidden>
         Next Question <span class="btn-next-arrow">→</span>
       </button>
 

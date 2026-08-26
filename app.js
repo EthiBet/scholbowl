@@ -5,15 +5,14 @@
   var WORD_INTERVAL_MS = 210;     // pace of the word-by-word read
   var ANSWER_SECONDS = 5;         // buzz-in and post-read answer window
   var TIMER_CIRCUMFERENCE = 194.78; // 2 * PI * r(31), matches style.css
+  var FADE_MS = 250;              // must match .fade-el transition duration in style.css
 
   // ---------- Elements ----------
   var screenStart = document.getElementById("screen-start");
   var screenGame = document.getElementById("screen-game");
   var btnPlay = document.getElementById("btn-play");
-  var questionTotalEl = document.getElementById("question-total");
 
   var categoryLabel = document.getElementById("category-label");
-  var questionCount = document.getElementById("question-count");
   var questionTextEl = document.getElementById("question-text");
   var cursorEl = document.getElementById("cursor");
 
@@ -81,6 +80,44 @@
     });
   }
 
+  // ---------- Control-zone crossfades ----------
+  // Exactly one of buzz-zone / answer-zone / btn-next is visible at a time.
+  var controlEls = [buzzZone, answerZone, btnNext];
+
+  function currentlyVisibleControl() {
+    for (var i = 0; i < controlEls.length; i++) {
+      if (controlEls[i].classList.contains("is-visible")) return controlEls[i];
+    }
+    return null;
+  }
+
+  function fadeInControl(el) {
+    el.hidden = false;
+    void el.getBoundingClientRect(); // force reflow so the transition runs
+    requestAnimationFrame(function () { el.classList.add("is-visible"); });
+  }
+
+  function crossfadeControl(hideEl, showEl) {
+    if (hideEl) {
+      hideEl.classList.remove("is-visible");
+      setTimeout(function () {
+        hideEl.hidden = true;
+        fadeInControl(showEl);
+      }, FADE_MS);
+    } else {
+      fadeInControl(showEl);
+    }
+  }
+
+  function resetControlsToBuzzer() {
+    var visible = currentlyVisibleControl();
+    controlEls.forEach(function (el) {
+      if (el !== visible) { el.hidden = true; el.classList.remove("is-visible"); }
+    });
+    if (visible === buzzZone) return;
+    crossfadeControl(visible, buzzZone);
+  }
+
   // ---------- Word-by-word reveal ----------
   function startReveal(question) {
     words = question.text.split(/\s+/);
@@ -141,8 +178,7 @@
 
   // ---------- Answer window ----------
   function startAnswerWindow() {
-    buzzZone.hidden = true;
-    answerZone.hidden = false;
+    crossfadeControl(buzzZone, answerZone);
     answerInput.value = "";
     answerInput.disabled = false;
     setTimeout(function () { answerInput.focus(); }, 30);
@@ -192,10 +228,9 @@
 
   function wrapUpQuestion() {
     showRestOfQuestionInstantly();
-    answerZone.hidden = true;
     revealBlock.hidden = false;
     answerTextEl.textContent = current.answer;
-    btnNext.hidden = false;
+    crossfadeControl(answerZone, btnNext);
   }
 
   // ---------- Answer checking ----------
@@ -243,29 +278,21 @@
     askedCount++;
 
     categoryLabel.textContent = current.category;
-    questionCount.textContent = pad(askedCount) + " / " + pad(QUESTIONS.length);
 
     feedbackEl.hidden = true;
     revealBlock.hidden = true;
     answerTextEl.textContent = "";
-    btnNext.hidden = true;
+    answerInput.value = "";
 
-    answerZone.hidden = true;
-    buzzZone.hidden = false;
     btnBuzz.classList.remove("is-pressed");
+    resetControlsToBuzzer();
 
     startReveal(current);
-  }
-
-  function pad(n) {
-    return n < 10 ? "0" + n : String(n);
   }
 
   btnNext.addEventListener("click", loadQuestion);
 
   // ---------- Boot ----------
-  questionTotalEl.textContent = String(QUESTIONS.length);
-
   btnPlay.addEventListener("click", function () {
     showScreen(screenGame);
     refillBag();

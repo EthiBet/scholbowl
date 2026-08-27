@@ -302,5 +302,297 @@ const QUESTIONS = [
     category: "Social Studies",
     text: `Geoffrey Brennan and Loren Lomasky proposed that this activity has contrasting "expressive" and "instrumental" motivations as a solution to Downs' paradox. A Condorcet method for this activity avoids situations similar to rock, paper, scissors. Clear preferences cannot be illustrated through this activity by Arrow's impossibility theorem. A "wasteful" form of this activity is common in "first-past-the-post" systems for it, which are contrasted with a "ranked choice" method. Name this civic activity performed at the ballot box.`,
     answer: `Voting`
+  },
+  {
+    category: "Physics",
+    text: `This phenomenon occurs whenever a signal encounters a discontinuity in impedance along its path. Coefficients for this phenomenon and transmission are computed by the Fresnel equations. The type of this phenomenon that occurs at a very smooth surface is its specular type. Instead of refracting, light waves past the critical angle will undergo the "total internal" type of this phenomenon at a boundary. The angle of light undergoing this phenomenon is equal to the angle of incidence.`,
+    answer: `Reflection`
+  },
+  {
+    category: "Mythology",
+    text: `Procris cured a king of this place from a curse that caused him to produce deadly animals when being unfaithful. Megara fell to that king of this place after Scylla cut off a lock of hair from her father's head. One prince of this place was revived by Polyidus after drowning in a cask of honey. A king of this place adopted Sarpedon, Rhadamanthus, and a man who earned the ire of Poseidon after refusing to sacrifice a great white bull. Seven young men and seven virgin maidens were sent to this island every year to be sacrificed to a son of Pasiphaë.`,
+    answer: `Crete`
+  },
+  {
+    category: "History",
+    text: `One group of these people converted to Catholicism under their king Reccared I. Instead of waiting for his nephew Gratian, Valens decided to engage in battle with these people, leading to his death at the hands of their leader Fritigern at the battle of Adrianople. Flavius Aetius worked with a leader of these people named Theodoric to defeat the Huns at the battle of the Catalaunian Plains. A group of these people sacked Rome in 410 CE under the leadership of their king Alaric. These people were divided into western and eastern branches prefixed "Visi-" and "Ostro-."`,
+    answer: `Goths`
+  },
+  {
+    category: "Literature",
+    text: `This character orders a farmer to stop flogging a shepherd boy, which only makes him flog the boy harder. A companion of this character learns that he must whip himself 3,300 times in order to lift a curse on this character's love interest. Those instructions are given by a Duke and a Duchess who claim to have learned about this character from Part One of a novel titled for this character and published ten years prior. A barber and curate burn down this character's library of chivalric romances. This character moons after the peasant Dulcinea and takes on Sancho Panza as a squire.`,
+    answer: `Don Quixote`
+  },
+  {
+    category: "Science",
+    text: `Actives, like retinol, are compounds that increase a turnover rate in this thing. Salicylic acid and beta hydroxy acids, or BHAs, remove excess material from this thing, while hyaluronic acid acts as a humectant for it. Oil-based then water-based products are used to clean this thing in the first two steps of a Korean ten-step process. Sebum secreted onto this tissue can clog follicles in it. The porous stone pumice can be applied to this tissue to exfoliate it, removing layers of dead cells. Ultraviolet light causes aging indicators like wrinkles and dark spots on this tissue which are prevented by sunscreen.`,
+    answer: `Human skin`
+  },
+  {
+    category: "Fine Arts",
+    text: `One artist's collection of "Persians" of this material are marked with an optic ribbed pattern and brightly-colored "lips." In works like Dream Garden, an artist embedded color directly in the Favrile form of this material. Nature and gardens inspired many of Dale Chihuly's large-scale sculptures in this material. Lamps with ornate shades made of this material were designed by Louis Comfort Tiffany. After being melted in a furnace, this material can be blown into shape using a blowpipe.`,
+    answer: `Glass`
+  },
+  {
+    category: "Science",
+    text: `The transfer of functional groups between two of these elements occurs between oxidative addition and reductive elimination steps during cross-coupling reactions. The number of these elements that a substituent is bound to is its denticity. These elements are at the center of complexes whose orbital splitting behavior is described by crystal field theory. Most coordination complexes are centered around one of these elements bound to ligands. The catalytic activity of these elements stems from their ability to adopt different oxidation states due to their partially filled d orbitals.`,
+    answer: `Transition metals`
+  },
+  {
+    category: "Literature",
+    text: `A character in this play remarks, "the wheel is come full circle," after he loses a trial by combat. That character from this play questions, "Why bastard? Wherefore base?" in a speech that concludes, "Now, gods, stand up for bastards!" Another character in this play laments, "As flies to wanton boys are we to the gods. / They kill us for their sport," after he is blinded by the Duke of Cornwall. In this play, Edmund manipulates the Earl of Gloucester into turning against his son Edgar, who flees and runs into the title king and his fool in a storm.`,
+    answer: `King Lear`
+  },
+  {
+    category: "History",
+    text: `This leader received a ceremonial "Sword of Islam" from the native population of the "fourth shore" of this leader's country. This leader guaranteed a two-thirds majority in Parliament to the party that received the largest share of votes by passing the Acerbo Law. This leader used claims of native irredentism to force King Zog into exile and justify his country's occupation of Albania. Victor Emmanuel III appointed this leader as prime minister after this leader's paramilitary army, the Blackshirts, marched on Rome.`,
+    answer: `Benito Mussolini`
+  },
+  {
+    category: "Philosophy",
+    text: `This thinker urged the "privileged minority" to "speak the truth and to expose lies" in the anti-Vietnam War essay "The Responsibility of Intellectuals." This thinker listed ownership and flak as two of the five filters of the propaganda model for systemic media bias in a book co-written with Edward S. Herman titled Manufacturing Consent. This thinker pointed to a "poverty of the stimulus" to argue that children have an innate understanding of universal grammar. This thinker's Syntactic Structures introduced the nonsense sentence "colorless green ideas sleep furiously."`,
+    answer: `Noam Chomsky`
+  },
+  {
+    category: "Science",
+    text: `The rotation speed of these objects changes quickly at the tachocline. These objects will lose mass if they exceed their Roche lobe. These objects are grouped by metallicity into Populations I and II. Some of these objects enter the horizontal branch after experiencing a helium flash, which initiates the triple-alpha process. These objects comprise open and globular clusters. The luminosities and temperatures of these objects are plotted on H-R diagrams, which places most of these objects in the main sequence.`,
+    answer: `Stars`
+  },
+  {
+    category: "Fine Arts",
+    text: `A video of the North State orchestra performing one of these works went viral because a woman in the audience screamed after a sudden fortississimo. A "Dance of the Knights" features in Sergei Prokofiev's adaptation of Romeo and Juliet as one of these works. Prokofiev collaborated with George Balanchine on one of these works titled Prodigal Son for Sergei Diaghilev, an impresario for these works. A high-pitched bassoon solo opens one of these works by Igor Stravinsky that caused a riot at its Paris premiere.`,
+    answer: `Ballets`
+  },
+  {
+    category: "Religion",
+    text: `This holder of this title challenged people to point him to where God is not after pointing his feet toward the Kaaba. That holder of this title threw his bowl in a sewer to find a successor. The first person to hold this title declared, "there is no Hindu, there is no Muslim." The last person to hold this title founded an order called the Khalsa and told his followers to obey the Five Ks. The last human to hold this title, Gobind Singh, declared that the eternal holder of this title would be a book called Granth Sahib. The first person to hold this title was named Nanak.`,
+    answer: `Guru`
+  },
+  {
+    category: "History",
+    text: `A guerrilla group in this country killed 69 peasants in the Lucanamarca Massacre and carried out the Tarata Street bombing. In this country, a hostage crisis at an embassy was perpetrated by the insurgent group MRTA. A right-wing dictator of this country established the Grupo Colina death squad and oversaw the capture of Abimael Guzman, who led the Shining Path insurgency. The novelist Mario Vargas Llosa lost this country's 1990 presidential election to that dictator, Alberto Fujimori. In 1975, this country granted official status to the Quechua language.`,
+    answer: `Peru`
+  },
+  {
+    category: "Literature",
+    text: `A poem by this author describes "voices" that are "more distant and more solemn / Than a fading star." In a poem by this author, the speaker describes being "almost, at times, the Fool" in a stanza that begins, "No, I am not Prince Hamlet, nor was meant to be." That poem by this author asks, "Do I dare / Disturb the universe?" A poem by this author quotes the words "Datta. Dayadhvam. Damyata" from the Upanishads in its last section, "What the Thunder Said." That poem begins, "April is the cruellest month."`,
+    answer: `T. S. Eliot`
+  },
+  {
+    category: "Music",
+    text: `This artist sings "Don't be afraid to try again / Everyone goes south / Every now and then" in a song beginning "Well we all have a face / that we hide away forever." In a song about his time working at the Executive Room, this artist described his first wife, Elizabeth Weber, as a "waitress… practicing politics." This artist sings into a wrench in the music video for a song about someone "living in her white-bred world" who's "looking for a downtown man." In another song, this artist's character is told "we're all in the mood for a melody / and you've got us feeling alright" as he plays music at a bar.`,
+    answer: `Billy Joel`
+  },
+  {
+    category: "History",
+    text: `Due to a lack of white volunteers in this conflict, Christopher Greene was put in command of an integrated army unit. During this conflict, which saw the formation of the First Rhode Island Regiment, several enslaved people joined an "Ethiopian Regiment" after Lord Dunmore's Proclamation was issued. The Black spy James Armistead helped one side in this conflict secure victory at a battle where the other side's band is said to have played the song "The World Turn'd Upside Down." In the build-up to this conflict, Crispus Attucks was killed in the Boston Massacre.`,
+    answer: `Revolutionary War`
+  },
+  {
+    category: "Literature",
+    text: `The protagonist of a story by this author is told "Rome wasn't built in a day" and annoys a man reading a newspaper by asking him for matches. In another story by this author, a gray monkey tied to a "small chinaberry tree" plays outside a restaurant called "The Tower." A character created by this author wears a large purple hat and has a stroke after condescendingly attempting to give Carver a penny. In a story by this author, the escaped convict "the Misfit" has a conversation with the Grandmother before shooting her.`,
+    answer: `Flannery O'Connor`
+  },
+  {
+    category: "Science",
+    text: `The Attini subgroup of this family can create food by intentionally promoting fungal growth. Certain species of acacias grow hollow spicules to provide homes for animals in this family as a mutualistic defense mechanism. E. O. Wilson's extensive research on animals in this family led to the founding of sociobiology. Studies using these members of order Hymenoptera led to the first isolation of formic acid. A red-colored invasive species in this family of insects can form rafts and defend colonies using pincers.`,
+    answer: `Ants`
+  },
+  {
+    category: "Social Studies",
+    text: `According to legend, a "watcher" in a Ford pickup truck protects the indestructible Devil's tree in this state. Many horror films have been filmed at the abandoned Essex County Hospital Center in Cedar Grove in this state. This state's Pine Barrens are supposedly inhabited by a monster known as this state's "devil." Because another state has a border partially forming a twelve-mile circle, this state owns no islands in the Delaware River. This state disputed ownership of Ellis Island with a northern neighbor until 1998. The George Washington Bridge connects this state to Manhattan.`,
+    answer: `New Jersey`,
+    alt: [`Jersey`]
+  },
+  {
+    category: "Fine Arts",
+    text: `In one painting by this artist, a green dress strung between a toilet and trophy hangs in front of skyscrapers. Another painting by this artist shows a naked girl holding a ribbon that makes a family tree with her parents and grandparents. In one painting, this artist's face replaces the face of a deer with arrows lodged in its hide. This artist's spine is replaced by the title Broken Column in a painting she made after a bus accident that caused her chronic pain. Two versions of this artist hold hands with each other in a painting she made shortly after her divorce with Diego Rivera.`,
+    answer: `Frida Kahlo`
+  },
+  {
+    category: "Science",
+    text: `Sequences where the value of one term is equal to this quantity for the next term are called "martingales." The moment-generating function of a random variable X is computed by finding this quantity for "e to the t X." For a random variable x with PDF f of x, this quantity equals "the integral from minus infinity to infinity of x times f of x dx." The law of large numbers states that for a large number of trials, the mean result will approach this value. When rolling a six-sided die, this value for the outcome is 3.5.`,
+    answer: `Expected value`,
+    alt: [`Expectation`, `EV`, `Conditional expectation`]
+  },
+  {
+    category: "Social Studies",
+    text: `The Battle of Golden Hill broke out after sticks topped with Phrygian caps put up by this organization were repeatedly cut down. This organization met underneath an elm tree from which they hung a boot in protest of Lord Bute. The Loyal Nine, a predecessor to this organization, hung Andrew Oliver in effigy and raided Lieutenant Governor Thomas Hutchinson's house while protesting a certain piece of legislation. This organization was founded by Samuel Adams, who ran its Boston branch.`,
+    answer: `Sons of Liberty`,
+    alt: [`Loyal Nine`]
+  },
+  {
+    category: "Literature",
+    text: `The protagonist of this novel is stopped from saving a drowning man by a character who claims that the harbor was made for the victim to drown in. After shooting two monkeys, the protagonist of this novel is kidnapped by the cannibalistic Oreillons. A pirate steals red sheep carrying gold from this novel's protagonist while leaving El Dorado. After being kicked out of the castle Thunder-ten-Tronckh, the protagonist of this novel survives the 1755 Lisbon earthquake. This novel's title character is told that humans live in the "best of all possible worlds" by his tutor Pangloss.`,
+    answer: `Candide`
+  },
+  {
+    category: "Social Studies",
+    text: `The decline of this country's industrial sector in the mid-18th century is derisively known as the "Periwig Era." This country's colonial ventures were overseen by companies operated by the 19 Gentlemen and 17 Gentlemen. This country's financial innovations included hosting the first publicly traded company and the first stock exchange. This country expanded its farmland and created a vast system of polders using windmills. In the 1630s, a speculative bubble drove up the price of tulips in this country, then collapsed dramatically.`,
+    answer: `The Netherlands`,
+    alt: [`Kingdom of the Netherlands`, `Nederland`, `Koninkrijk Nederlanden`, `Dutch Republic`]
+  },
+  {
+    category: "Fine Arts",
+    text: `In a film by this director, a soldier plays with a flare that emits purple smoke before his group is shot at by unseen enemies hiding in foliage. In another film by this director, a man squeezes his brother's temples and says, "I know it was you… You broke my heart. You broke my heart!" This director directed a film in which shots of a man's rivals being assassinated are interspersed with shots of his son's baptism. A fleet of helicopters plays "The Ride of the Valkyries" as they attack a village in this director's Heart of Darkness-inspired film about the Vietnam War.`,
+    answer: `Francis Ford Coppola`
+  },
+  {
+    category: "Science",
+    text: `In special relativity, the component of this quantity parallel to the direction of motion is scaled by a factor of gamma cubed. In systems where this quantity is always antiparallel to position, this quantity is called central. If this quantity can be written as the negative spatial derivative of potential energy, it is conservative. For a spring, this quantity equals "minus the spring constant times displacement," according to Hooke's law. Vectors of this quantity are represented as arrows on a free body diagram.`,
+    answer: `Force`,
+    alt: [`Central force`, `Conservative force`, `Restoring force`]
+  },
+  {
+    category: "Philosophy",
+    text: `Avicenna argued that something which has this property necessarily must also be simple and good. In metaphysics, nominalism holds that this property only applies to particulars, not to universals. The monk Gaunilo imagined an island that clearly lacks this property to refute an argument in the Proslogion. That argument was put forth by Anselm of Canterbury and claims that "that which nothing greater can be conceived" must have this property. Materialists believe that only physical things have this property.`,
+    answer: `Existence`,
+    alt: [`Being`, `Reality`]
+  },
+  {
+    category: "Literature",
+    text: `A clay bas-relief of this figure, sculpted by Henry Wilcox in his sleep, sparks an investigation in which Professor Angell finds high rates of disturbing dreams in artists and poets. The Norwegian sailor Johannsen describes stumbling across this figure's "damp Cyclopean city of slimy green stone." In a story about this figure, a couplet ending, "And with strange aeons even death may die," parallels a cult chant translating to "in his house at R'lyeh [this creature] waits dreaming." This Great Old One inspired a namesake "mythos," starting with a short story titled "The Call of [this creature]."`,
+    answer: `Cthulhu`
+  },
+  {
+    category: "Science",
+    text: `These groups have the most s character of any group due to their electropositivity according to Bent's rule. In MO theory, a filled nonbonding molecular orbital is equivalent to one of these groups. Hydrides act as nucleophiles because they possess one of these groups. Organic chemists describe the movement of one of these groups by "pushing" them from the base to the tip of a double-barbed curved arrow. Water has a bent molecular geometry due to the repulsion these groups exert on the hydrogen atoms according to VSEPR theory.`,
+    answer: `Electron pairs`,
+    alt: [`Lone pairs`]
+  },
+  {
+    category: "Social Studies",
+    text: `This governor's Project Roomkey used state funds to provide hotel rooms for homeless people at risk of COVID. In September 2021, this governor signed a bill to allow duplexes on lots zoned single-family-only, SB 9. A candidate who ran against this governor, John Cox, rented a bear to display on the campaign trail. This governor attended a November 2020 birthday party at the restaurant The French Laundry which violated COVID restrictions. Candidates like Kevin Paffrath and Larry Elder were defeated in the September 2021 attempted recall election of this governor.`,
+    answer: `Gavin Newsom`
+  },
+  {
+    category: "Social Studies",
+    text: `A holder of this position declared that "the twentieth century belongs to [his country]." A constitutional crisis ensued when one holder of this position was replaced by Arthur Meighen in the King-Byng affair. A different holder of this position faced the Conscription Crisis during the First World War. The Pacific Scandal resulted in the resignation of the first holder of this position, John MacDonald. Later holders of this position included William Lyon Mackenzie King and Pierre Trudeau.`,
+    answer: `Prime Minister of Canada`
+  },
+  {
+    category: "Fine Arts",
+    text: `This composer transcribed themes from other composers' operas for piano solo as loosely structured "paraphrases" and "reminiscences." The right hand rapidly alternates between two D-sharps an octave apart throughout an etude by this composer. This composer dedicated a set of 12 etudes to his teacher Czerny, the fourth of which is titled "Mazeppa." This composer's six "Grand Etudes" are adapted from Paganini violin pieces. A collection of 19 virtuosic piano works by this composer features the folk music of his home country Hungary.`,
+    answer: `Franz Liszt`
+  },
+  {
+    category: "Literature",
+    text: `A stage director asks an actress to sing a song about summer in the prologue to a play from this country. After being cursed by a sage, a character in a play from this country is forgotten by her husband. In that play from this country, a fisherman who finds a lost ring enables a king to identify his wife. The story of that play from this country is also found in an epic in which five brothers are exiled after losing a game of dice. An eighteen-day war between the Pandavas and Kauravas occurs in that epic from this country.`,
+    answer: `India`
+  },
+  {
+    category: "Social Studies",
+    text: `A court ruled that this country's Urantia Foundation could not hold the copyright to its namesake book because it was written by aliens. Another religion in this country believes that the wheel in Ezekiel's visions was a UFO called the "Mother Wheel." In this country, a pair of cult leaders calling themselves Ti and Do led their followers to board a spacecraft behind Comet Hale-Bopp by committing mass suicide. A religion from this country believes the ancient Earth was visited by an alien named Xenu. That religion was founded by L. Ron Hubbard.`,
+    answer: `United States`,
+    alt: [`America`, `US`, `USA`]
+  },
+  {
+    category: "Social Studies",
+    text: `In this city, poems by authors such as Alcman were read at a festival in which men danced around naked called the Gymnopaedia. In this city, a council called the apella would debate proposals submitted by its council of elders, the gerousia. The poet Tyrtaeus supported this city's second war to conquer its neighbors Messenia and Laconia. This city's law-giver, Lycurgus, is credited with founding its system of military training, the agoge. A class of serfs in this city were called the helots.`,
+    answer: `Sparta`
+  },
+  {
+    category: "Fine Arts",
+    text: `In response to accusations of sexualizing healthcare workers, this band removed a nurse outfit from a scene set to the words "love is a drug that I quit." One member of this band describes herself as "so sweet, then I get a little angry" on a collaboration with Lady Gaga, "Sour Candy." This band sings "ice cream, chillin', chillin'" in the chorus of a collaboration with Selena Gomez that appears on their first album, which is titled The Album. Songs on that album also include "How You Like That" and the number one hit "Lovesick Girls."`,
+    answer: `BLACKPINK`
+  },
+  {
+    category: "Literature",
+    text: `The narrator of this novel is reminded of Louis Armstrong's song "Black and Blue" while imagining talking to a slave woman mourning her master's death. This novel's narrator is mistaken for a man named Rinehart after attending the funeral of a man who was shot selling dolls on the street. After failing to give a tour to the stakeholder Mr. Norton, the narrator of this novel is sent to New York with fake letters of recommendation by Dr. Bledsoe. At the end of this novel, the narrator kills Ras the Destroyer during the race riot and falls through a manhole into a hidden underground room.`,
+    answer: `Invisible Man`
+  },
+  {
+    category: "Fine Arts",
+    text: `William Walton composed works of this type titled Crown Imperial and Orb and Sceptre for the coronations of British monarchs. Traditionally, the flautists switch to playing piccolo during the "obbligato" solo in the final strain of one of these works. The song "Land of Hope and Glory" adapts the trio section of one of these works often performed at graduation ceremonies. Those works are titled Pomp and Circumstance. American works of this type like "Semper Fidelis" and "The Stars and Stripes Forever" were composed by the "King" of them, John Philip Sousa.`,
+    answer: `Marches`
+  },
+  {
+    category: "Social Studies",
+    text: `Instead of OpenGL, this company uses its own graphics API, named Metal, with its Cocoa native API. This company makes major product announcements at its annual Worldwide Developers Conference. This company began to shift away from using Intel processors in 2020 in favor of its own "silicon," like the ARM architecture-based M1 chip. "Bionic" chips and Retina displays are recent consumer technology innovations by this company. This company's current CEO, the first Fortune 500 CEO to come out as gay, is Tim Cook.`,
+    answer: `Apple Inc.`,
+    alt: [`Apple`]
+  },
+  {
+    category: "Literature",
+    text: `A character in this novel declares that he would rather betray the world than let the world betray him after accidentally killing his father's blood brother. A southern barbarian chieftain in this novel is captured and released seven times before submitting. Three men in this novel declare that although they were not born on the same day, they seek to die on the same day in the Peach Garden Oath. A strategist "borrows" the east wind to aid fire ships in this novel's dramatization of Battle of Red Cliffs.`,
+    answer: `Romance of the Three Kingdoms`
+  },
+  {
+    category: "Social Studies",
+    text: `A kingdom in this region was dominated for a time by a faction known as the Sarim. That kingdom from this region was home to a research institute known as the Hall of Worthies and was dominated by an elite class known as the yangban. A military commander employed by a kingdom in this region designed so-called "turtle ships" to counter the forces of Toyotomi Hideyoshi; that commander was Yi Sun-Sin. Sejong the Great ruled the kingdom of Joseon, which dominated this region for five centuries.`,
+    answer: `Korean peninsula`,
+    alt: [`Korea`]
+  },
+  {
+    category: "Literature",
+    text: `A short story by this author ends with a psychologist watching "vultures… dropping down" while checking up on a family in the "Happylife Home." In that story by this author, Peter and Wendy lock their parents in an autonomous nursery, where they are eaten by lions. This author of "The Veldt" wrote a novel in which the protagonist memorizes lines from the Book of Ecclesiastes. In that novel by this author, the protagonist meets up with the former professor Faber before escaping Captain Beatty's mechanical hounds.`,
+    answer: `Ray Bradbury`
+  },
+  {
+    category: "Social Studies",
+    text: `Because he believes it will increase personal liberty, this system of government is advocated by Curtis Yarvin, who is also known as Mencius Moldbug. Robert Filmer's argument for this system of government based on the life of Adam is refuted in John Locke's First Treatise. Only this system of government can prevent a "war of all against all" according to Thomas Hobbes' Leviathan. The European belief that this system is justified by an inalienable "divine right" contrasts with the Chinese belief in a revocable "Mandate of Heaven."`,
+    answer: `Monarchy`
+  },
+  {
+    category: "Science",
+    text: `Fluorescence can be introduced into this compound by tagging it with intercalating agents like acridine orange and ethidium bromide. S-adenosyl methionine donates methyl groups to CpG sites located in this compound. Chargaff's rules can be used to determine the melting temperature of this compound because one pair of its subunits has three hydrogen bonds while the other purine-pyrimidine pair has only two. Photo 51 is a photo of this compound that was taken using X-ray crystallography by Rosalind Franklin before Francis and Crick modeled this compound in 3D.`,
+    answer: `DNA`
+  },
+  {
+    category: "Social Studies",
+    text: `This city's MLB ballpark had a slope in center field called Tal's Hill that was removed in 2016. This city was nicknamed "Clutch City" after its NBA team came back from 0-2 down in the playoffs against the Suns, eventually defeating the Patrick Ewing-led Knicks in the finals. George Springer won the World Series MVP for this city's MLB team in 2017, before the discovery that the team cheated during the season by illegally stealing signs and banging on a trash can to warn of opponents' upcoming pitches. In 2021, the Brooklyn Nets traded for James Harden from this city's NBA team.`,
+    answer: `Houston`
+  },
+  {
+    category: "Social Studies",
+    text: `The death of Bogislaw XIV during this war resulted in one belligerent annexing his state under the Treaty of Stettin. The War of the Mantuan Succession was a part of this larger conflict which featured the brutal sack of Magdeburg. The Treaty of Lübeck ended Christian IV's involvement with one side in this war. Count Tilly won the battle of White Mountain during this war's Bohemian phase, which began after Ferdinand II's representatives were thrown out of a window in the Second Defenestration of Prague.`,
+    answer: `Thirty Years' War`
+  },
+  {
+    category: "Science",
+    text: `These compounds can be selectively oxidized by either pyridinium chlorochromate or sodium dichromate depending on whether the desired product is an aldehyde or a carboxylic acid. One of these compounds is toxic because a dehydrogenase oxidizes it to produce formic acid instead of the intended product acetaldehyde. It is difficult to purify one of these compounds past 96% because it forms an azeotrope with water during distillation. The primary ingredient in many disinfectants is a type of these compounds named "isopropyl."`,
+    answer: `Alcohols`
+  },
+  {
+    category: "Fine Arts",
+    text: `One painting from this movement depicts a bunch of grapes resting on a checkered tablecloth above a copy of Le Journal. The "crystal" form of this movement was promoted by artists like Juan Gris. A portrait from this movement depicts the artist's lover Dora Maar with her cat. It's not Fauvism, but Louis Vauxcelles accidentally coined the name of this movement while making fun of Houses at L'Estaque by Georges Braque. A lightbulb is seen above a screaming horse in one painting from this movement that depicts a bombing in the Spanish Civil War, Guernica.`,
+    answer: `Cubism`
+  },
+  {
+    category: "Social Studies",
+    text: `Among this monarch's early reforms was the consolidation of the Hermandad police force under the crown. This monarch's position was secured against a rival relative after the Battle of Toro. This monarch's advisor Tomás de Torquemada was appointed to head one institution originating in this monarch's realm. This mother of Juana the Mad conquered the kingdom of Granada and, along with her husband, expelled all Jews from their lands through the Alhambra Decree. This monarch and her husband also sponsored Christopher Columbus' voyages to the New World.`,
+    answer: `Isabella I of Castile`,
+    alt: [`Isabella of Castile`, `Isabella the Catholic`]
+  },
+  {
+    category: "Literature",
+    text: `In one poem, this author remarked, "to die is different from what any one supposed, and luckier." The phrase "the sea whisper'd me" concludes a poem by this author in which a mockingbird mourns the death of its mate. This author's "Calamus" poems include several explicit passages describing sexual love between men. This author of "Out of the Cradle Endlessly Rocking" declared, "I sound my barbaric yawp over the roofs of the world" in a poem that begins "I celebrate myself, and sing myself."`,
+    answer: `Walt Whitman`
+  },
+  {
+    category: "Fine Arts",
+    text: `In one work, policemen sing "tarantara" as members of this profession shout "With Cat-Like Tread, Upon Our Prey We Steal." In an opera, a character sings "it is, it is a glorious thing" to be this profession's king. In that opera, after Ruth mishears her instructions, she indentures Frederic to this profession until his 21st birthday. A man introduces himself to these people with a song claiming he can write "a washing bill in Babylonic cuneiform." That character from an opera titled for these people declares "I Am the Very Model of a Modern Major-General."`,
+    answer: `Pirates`
+  },
+  {
+    category: "Social Studies",
+    text: `This person introduced the discovery doctrine, which held that the United States could lay claim to Native American-owned land that was originally 'discovered' by European colonial powers. This person ruled that the Supreme Court could not constitutionally issue a writ of mandamus, preventing "midnight judges" from taking office. Andrew Jackson reportedly said "now let him enforce it" in response to this judge's ruling defending Native American tribal sovereignty in Worcester v. Georgia.`,
+    answer: `John Marshall`
+  },
+  {
+    category: "Science",
+    text: `For three intersecting segments inside one of these shapes, the butterfly theorem says their intersecting point is the midpoint of a new, generated segment. The distance from a point to the perimeter of one of these shapes is given by the power of a point theorem. One of these shapes that passes through nine special points can be constructed for every triangle. Constructing a square with the same area as one of these shapes is impossible because pi is transcendental. A segment whose endpoints lie on one of these shapes is called a chord.`,
+    answer: `Circles`
+  },
+  {
+    category: "Social Studies",
+    text: `The peel of the yuzu fruit, salt, and one kind of this food form Japanese yuzukosho paste, often used to augment miso soup. A sauce using the piri piri kind of this food is central to some dishes from African former Portuguese colonies. Prik kee noo is a kind of this food used in Thai cuisine nicknamed "mouse dropping" or "bird's eye." The New Mexico group of types of this food contains the Hatch and Pueblo varieties. A dish named for being relleno, or stuffed, often uses the poblano variety of this food. The Carolina Reaper kind of this food has very high capsaicin levels.`,
+    answer: `Chile peppers`,
+    alt: [`Chili peppers`, `Peppers`]
+  },
+  {
+    category: "Literature",
+    text: `One hero from this country's myth performs the salmon-leap to reach the home of a warrior so he can learn weaponry. A beautiful woman elopes with a man with a love-spot on his forehead despite agreeing to marry a hero from this country. The story about Grainne and her lover is narrated by the son of that hero from this country, the bard Oisín. Another hero from this country's myth defeats the attacking forces of Queen Medb at the Cattle Raid of Cooley. One hero from this country burns his thumb while cooking the Salmon of Knowledge, as recounted in the Fenian Cycle.`,
+    answer: `Ireland`
   }
 ];

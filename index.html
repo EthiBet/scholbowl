@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Scholastic Bowl — Buzzer Practice</title>
-<meta name="description" content="Practice scholastic bowl questions with a live buzzer, word-by-word reads, and a five second answer clock." />
+<title>SHS Scholastic Bowl</title>
+<meta name="description" content="Practice scholastic bowl questions with a live buzzer, word-by-word reads, and a countdown answer clock." />
+<link rel="icon" type="image/png" href="logo.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +29,18 @@
       <button id="btn-play" class="btn-play" type="button">
         <span class="btn-play-ring"></span>
         <span class="btn-play-text">Play</span>
+      </button>
+      <button id="btn-show-qr" class="btn-text-link" type="button">Show QR Code</button>
+    </div>
+  </section>
+
+  <!-- QR CODE SCREEN -->
+  <section id="screen-qr" class="screen screen--qr">
+    <div class="start-card">
+      <p class="eyebrow">Scan to Join</p>
+      <img src="qrcode.png" alt="QR code" class="qr-image" onerror="this.remove()" />
+      <button id="btn-qr-back" class="btn-next" type="button">
+        <span class="btn-next-arrow">←</span> Back to Home
       </button>
     </div>
   </section>

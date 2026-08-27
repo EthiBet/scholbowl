@@ -30,6 +30,12 @@
 
 * { box-sizing: border-box; }
 
+/* The buzzer/answer/next controls set their own `display` (flex, etc.),
+   which otherwise wins the cascade over the browser's default
+   `[hidden] { display: none }` rule and leaves "hidden" elements
+   occupying layout space. This keeps hidden always mean hidden. */
+[hidden] { display: none !important; }
+
 html, body {
   height: 100%;
 }
@@ -77,8 +83,8 @@ body {
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(30, 37, 64, 0.35), transparent 55%),
-    linear-gradient(180deg, rgba(8, 10, 19, 0.86) 0%, rgba(8, 10, 19, 0.93) 55%, rgba(8, 10, 19, 0.97) 100%);
+    radial-gradient(ellipse at 50% 0%, rgba(30, 37, 64, 0.28), transparent 55%),
+    linear-gradient(180deg, rgba(8, 10, 19, 0.74) 0%, rgba(8, 10, 19, 0.82) 55%, rgba(8, 10, 19, 0.88) 100%);
 }
 
 .grain {
@@ -218,9 +224,49 @@ body {
 .buzzer:focus-visible,
 .btn-enter:focus-visible,
 .btn-next:focus-visible,
+.btn-text-link:focus-visible,
 .answer-input:focus-visible {
   outline: 2px solid var(--brass-bright);
   outline-offset: 3px;
+}
+
+.btn-text-link {
+  margin-top: 1.5rem;
+  padding: 0.4rem 0.2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: transparent;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.btn-text-link:hover {
+  color: var(--brass-bright);
+  text-decoration-color: currentColor;
+}
+
+/* QR screen */
+
+.screen--qr {
+  min-height: 100dvh;
+  justify-content: center;
+  padding: 6vh 1.5rem;
+}
+
+.qr-image {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin: 0.5rem 0 2rem;
+  border-radius: 10px;
+  background: #fff;
+  padding: 12px;
 }
 
 /* -------------------- Game screen -------------------- */
@@ -340,7 +386,6 @@ body {
 .control-zone {
   width: 100%;
   max-width: 44rem;
-  min-height: 11rem;
   display: flex;
   flex-direction: column;
   align-items: center;

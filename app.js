@@ -3,14 +3,17 @@
 
   // ---------- Config ----------
   var WORD_INTERVAL_MS = 210;     // pace of the word-by-word read
-  var ANSWER_SECONDS = 5;         // buzz-in and post-read answer window
+  var ANSWER_SECONDS = 10;        // buzz-in and post-read answer window
   var TIMER_CIRCUMFERENCE = 194.78; // 2 * PI * r(31), matches style.css
   var FADE_MS = 250;              // must match .fade-el transition duration in style.css
 
   // ---------- Elements ----------
   var screenStart = document.getElementById("screen-start");
   var screenGame = document.getElementById("screen-game");
+  var screenQR = document.getElementById("screen-qr");
   var btnPlay = document.getElementById("btn-play");
+  var btnShowQR = document.getElementById("btn-show-qr");
+  var btnQRBack = document.getElementById("btn-qr-back");
 
   var categoryLabel = document.getElementById("category-label");
   var questionTextEl = document.getElementById("question-text");
@@ -75,10 +78,13 @@
 
   // ---------- Screen transitions ----------
   function showScreen(el) {
-    [screenStart, screenGame].forEach(function (s) {
+    [screenStart, screenGame, screenQR].forEach(function (s) {
       s.classList.toggle("is-active", s === el);
     });
   }
+
+  btnShowQR.addEventListener("click", function () { showScreen(screenQR); });
+  btnQRBack.addEventListener("click", function () { showScreen(screenStart); });
 
   // ---------- Control-zone crossfades ----------
   // Exactly one of buzz-zone / answer-zone / btn-next is visible at a time.
@@ -215,7 +221,7 @@
     if (answerInput.disabled) return;
     var userAnswer = answerInput.value;
     stopAnswerWindow();
-    var correct = checkAnswer(userAnswer, current.answer);
+    var correct = checkAnswer(userAnswer, current);
     showFeedback(correct ? "correct" : "incorrect");
     wrapUpQuestion();
   });
@@ -234,6 +240,9 @@
   }
 
   // ---------- Answer checking ----------
+  // Deliberately forgiving: case, punctuation, and leading articles never
+  // matter, a trailing/leading qualifier ("New York" for "New York State")
+  // is accepted, and a bare surname is accepted for a multi-word name.
   function normalize(str) {
     return str
       .toLowerCase()
@@ -244,15 +253,28 @@
       .trim();
   }
 
-  function checkAnswer(userRaw, correctRaw) {
-    var user = normalize(userRaw);
-    var correct = normalize(correctRaw);
-    if (!user) return false;
-    if (user === correct) return true;
-    // accept a close substring match either direction (handles
-    // "kite runner" vs "the kite runner", last-name-only answers, etc.)
-    if (correct.length >= 4 && (user.indexOf(correct) !== -1 || correct.indexOf(user) !== -1)) {
+  function matchesOne(user, candidate) {
+    if (!candidate) return false;
+    if (user === candidate) return true;
+    // substring either direction, e.g. "kite runner" vs "the kite runner"
+    if (candidate.length >= 4 && (user.indexOf(candidate) !== -1 || candidate.indexOf(user) !== -1)) {
       return true;
+    }
+    // bare last word of a multi-word answer, e.g. "Whitman" for "Walt Whitman"
+    var words = candidate.split(" ");
+    if (words.length > 1) {
+      var lastWord = words[words.length - 1];
+      if (lastWord.length >= 3 && user === lastWord) return true;
+    }
+    return false;
+  }
+
+  function checkAnswer(userRaw, question) {
+    var user = normalize(userRaw);
+    if (!user) return false;
+    var candidates = [question.answer].concat(question.alt || []).map(normalize);
+    for (var i = 0; i < candidates.length; i++) {
+      if (matchesOne(user, candidates[i])) return true;
     }
     return false;
   }

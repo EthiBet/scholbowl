@@ -482,6 +482,9 @@ body {
   position: relative;
   width: 72px;
   height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--panel-2), var(--panel) 75%);
+  box-shadow: 0 0 0 1px var(--hairline), 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .timer-svg {
@@ -492,7 +495,7 @@ body {
 
 .timer-track {
   fill: none;
-  stroke: var(--hairline);
+  stroke: rgba(201, 162, 39, 0.45);
   stroke-width: 5;
 }
 

@@ -49,11 +49,22 @@
   var revealFinished = false;
 
   // ---------- Bag shuffling (no repeats until exhausted) ----------
+  // Uses crypto's RNG when available (some browsers reduce Math.random's
+  // entropy for fingerprinting resistance) so shuffles stay unpredictable.
+  function randomFloat() {
+    if (window.crypto && window.crypto.getRandomValues) {
+      var buf = new Uint32Array(1);
+      window.crypto.getRandomValues(buf);
+      return buf[0] / 4294967296; // 2^32
+    }
+    return Math.random();
+  }
+
   function shuffledIndices(n) {
     var arr = [];
     for (var i = 0; i < n; i++) arr.push(i);
     for (var j = arr.length - 1; j > 0; j--) {
-      var k = Math.floor(Math.random() * (j + 1));
+      var k = Math.floor(randomFloat() * (j + 1));
       var tmp = arr[j]; arr[j] = arr[k]; arr[k] = tmp;
     }
     return arr;
@@ -64,7 +75,7 @@
     bag = shuffledIndices(QUESTIONS.length);
     // avoid an immediate repeat across a reshuffle boundary
     if (bag.length > 1 && bag[0] === lastIndex) {
-      var swapWith = 1 + Math.floor(Math.random() * (bag.length - 1));
+      var swapWith = 1 + Math.floor(randomFloat() * (bag.length - 1));
       var tmp = bag[0]; bag[0] = bag[swapWith]; bag[swapWith] = tmp;
     }
     bagPointer = 0;
